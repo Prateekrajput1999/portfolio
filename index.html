@@ -1,0 +1,1937 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prateek Rajput | Portfolio</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Base Styles */
+      :root {
+        /* Light Theme Variables */
+        --light-primary-color: #2563eb;
+        --light-secondary-color: #1e40af;
+        --light-dark-color: #1e293b;
+        --light-light-color: #f8fafc;
+        --light-gray-color: #64748b;
+        --light-border-color: #e2e8f0;
+        --light-bg-color: #ffffff;
+        --light-card-bg: #ffffff;
+        --light-text-color: #1e293b;
+        --light-header-bg: rgba(255, 255, 255, 0.95);
+        --light-footer-bg: #1e293b;
+        --light-footer-text: #ffffff;
+        --light-modal-bg: rgba(0, 0, 0, 0.5);
+
+        /* Dark Theme Variables */
+        --dark-primary-color: #3b82f6;
+        --dark-secondary-color: #60a5fa;
+        --dark-dark-color: #f8fafc;
+        --dark-light-color: #0f172a;
+        --dark-gray-color: #94a3b8;
+        --dark-border-color: #334155;
+        --dark-bg-color: #0f172a;
+        --dark-card-bg: #1e293b;
+        --dark-text-color: #f8fafc;
+        --dark-header-bg: rgba(15, 23, 42, 0.95);
+        --dark-footer-bg: #0f172a;
+        --dark-footer-text: #f8fafc;
+        --dark-modal-bg: rgba(0, 0, 0, 0.7);
+
+        /* Default to Light Theme */
+        --primary-color: var(--light-primary-color);
+        --secondary-color: var(--light-secondary-color);
+        --dark-color: var(--light-dark-color);
+        --light-color: var(--light-light-color);
+        --gray-color: var(--light-gray-color);
+        --border-color: var(--light-border-color);
+        --bg-color: var(--light-bg-color);
+        --card-bg: var(--light-card-bg);
+        --text-color: var(--light-text-color);
+        --header-bg: var(--light-header-bg);
+        --footer-bg: var(--light-footer-bg);
+        --footer-text: var(--light-footer-text);
+        --modal-bg: var(--light-modal-bg);
+
+        --transition: all 0.3s ease;
+      }
+
+      /* Dark Theme Class */
+      html.dark {
+        --primary-color: var(--dark-primary-color);
+        --secondary-color: var(--dark-secondary-color);
+        --dark-color: var(--dark-dark-color);
+        --light-color: var(--dark-light-color);
+        --gray-color: var(--dark-gray-color);
+        --border-color: var(--dark-border-color);
+        --bg-color: var(--dark-bg-color);
+        --card-bg: var(--dark-card-bg);
+        --text-color: var(--dark-text-color);
+        --header-bg: var(--dark-header-bg);
+        --footer-bg: var(--dark-footer-bg);
+        --footer-text: var(--dark-footer-text);
+        --modal-bg: var(--dark-modal-bg);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      .section {
+        padding: 5rem 0;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        text-align: center;
+        position: relative;
+        color: var(--text-color);
+      }
+
+      .section-title::after {
+        content: "";
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+        border-radius: 2px;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 0.8rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 5px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .btn-sm {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
+      }
+
+      /* Header & Navigation */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-bg);
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      header.scrolled {
+        padding: 0.5rem 0;
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+      }
+
+      .logo {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--primary-color);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        align-items: center;
+      }
+
+      .nav-links a {
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+        color: var(--text-color);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .nav-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      .theme-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--card-bg);
+        color: var(--text-color);
+        cursor: pointer;
+        transition: var(--transition);
+        margin-left: 1rem;
+        border: 1px solid var(--border-color);
+      }
+
+      .theme-toggle:hover {
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      .hamburger {
+        display: none;
+        cursor: pointer;
+      }
+
+      .hamburger div {
+        width: 25px;
+        height: 3px;
+        background-color: var(--text-color);
+        margin: 5px;
+        transition: var(--transition);
+      }
+
+      /* Hero Section */
+      #hero {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        background-color: var(--bg-color);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+
+      .hero-text {
+        flex: 1;
+      }
+
+      .hero-image {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+      }
+
+      .hero-image img {
+        width: 80%;
+        max-width: 400px;
+        border-radius: 50%;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        animation: float 3s ease-in-out infinite;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+        color: var(--text-color);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .hero-description {
+        font-size: 1.1rem;
+        color: var(--gray-color);
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 1rem;
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: var(--card-bg);
+        border-radius: 50%;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* About Section */
+      #about {
+        background-color: var(--bg-color);
+      }
+
+      .about-content {
+        margin-top: 3rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .about-text {
+        width: 100%;
+      }
+
+      .about-text h3 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--text-color);
+      }
+
+      .about-text p {
+        margin-bottom: 1.5rem;
+        color: var(--gray-color);
+      }
+
+      /* Skills Section */
+      #skills {
+        background-color: var(--bg-color);
+      }
+
+      .skills-container {
+        margin-top: 3rem;
+      }
+
+      .skills-category {
+        margin-bottom: 2rem;
+      }
+
+      .skills-category h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .skills-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+
+      .skill-item {
+        background-color: var(--card-bg);
+        padding: 0.8rem 1.5rem;
+        border-radius: 30px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        color: var(--text-color);
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      .skill-item:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        background-color: var(--primary-color);
+        color: white;
+      }
+
+      /* Experience Section */
+      #experience {
+        background-color: var(--bg-color);
+      }
+
+      .experience-container {
+        max-width: 800px;
+        margin: 3rem auto 0;
+      }
+
+      .experience-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        margin-bottom: 2rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+      }
+
+      .experience-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .experience-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 1rem;
+      }
+
+      .experience-title {
+        font-size: 1.5rem;
+        color: var(--text-color);
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-company {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-date {
+        color: var(--gray-color);
+        font-weight: 500;
+      }
+
+      .experience-description ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        margin-top: 1rem;
+        color: var(--gray-color);
+      }
+
+      .experience-description li {
+        margin-bottom: 0.5rem;
+      }
+
+      .experience-cta {
+        text-align: center;
+        margin-top: 2rem;
+      }
+
+      /* Projects Section */
+      #projects {
+        background-color: var(--bg-color);
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .project-card {
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        transition: var(--transition);
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-image {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .project-content {
+        padding: 1.5rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        color: var(--text-color);
+      }
+
+      .project-description {
+        color: var(--gray-color);
+        margin-bottom: 1.5rem;
+        flex-grow: 1;
+      }
+
+      .project-links {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+      }
+
+      .project-links .btn {
+        flex: 1;
+        text-align: center;
+        min-width: 100px;
+      }
+
+      /* Resume Section */
+      #resume {
+        background-color: var(--bg-color);
+      }
+
+      .resume-container {
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .resume-preview {
+        width: 100%;
+        max-width: 800px;
+        height: 600px;
+        border: 1px solid var(--border-color);
+        border-radius: 10px;
+        overflow: hidden;
+        margin-bottom: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .resume-preview iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+        background-color: white;
+      }
+
+      /* Contact Section */
+      #contact {
+        background-color: var(--bg-color);
+      }
+
+      .contact-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: 600px;
+        margin: 3rem auto 0;
+      }
+
+      .contact-info h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+        text-align: center;
+      }
+
+      .contact-info p {
+        color: var(--gray-color);
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      .contact-details {
+        margin-bottom: 2rem;
+        width: 100%;
+      }
+
+      .contact-details div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        padding: 1rem;
+        background-color: var(--card-bg);
+        border-radius: 10px;
+        transition: var(--transition);
+      }
+
+      .contact-details div:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .contact-details i {
+        width: 40px;
+        height: 40px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1rem;
+      }
+
+      .social-links-large {
+        display: flex;
+        gap: 1.5rem;
+        margin-top: 1rem;
+        justify-content: center;
+      }
+
+      .social-links-large a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: var(--card-bg);
+        border-radius: 50%;
+        color: var(--primary-color);
+        font-size: 1.5rem;
+        transition: var(--transition);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .social-links-large a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Footer */
+      footer {
+        background-color: var(--footer-bg);
+        color: var(--footer-text);
+        padding: 3rem 0;
+        text-align: center;
+      }
+
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .footer-logo {
+        font-size: 2rem;
+        font-weight: 700;
+        color: white;
+        margin-bottom: 1rem;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 2rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-links a:hover {
+        color: var(--primary-color);
+      }
+
+      .footer-social {
+        display: flex;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .footer-social a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .footer-social a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-5px);
+      }
+
+      .footer-copyright {
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Back to Top Button */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: var(--transition);
+        opacity: 0;
+        visibility: hidden;
+        z-index: 999;
+      }
+
+      .back-to-top.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .back-to-top:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-5px);
+      }
+
+      /* Modal Styles */
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--modal-bg);
+        z-index: 1001;
+        overflow-y: auto;
+        padding: 2rem 0;
+      }
+
+      .modal-content {
+        background-color: var(--card-bg);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        border-radius: 10px;
+        position: relative;
+        animation: modalFadeIn 0.3s ease;
+      }
+
+      @keyframes modalFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        font-size: 1.5rem;
+        color: var(--gray-color);
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .modal-close:hover {
+        color: var(--primary-color);
+      }
+
+      .modal-title {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        color: var(--text-color);
+      }
+
+      .modal-section {
+        margin-bottom: 2rem;
+      }
+
+      .modal-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary-color);
+      }
+
+      .modal-section ul {
+        list-style-type: disc;
+        padding-left: 1.5rem;
+        color: var(--gray-color);
+      }
+
+      .modal-section li {
+        margin-bottom: 0.5rem;
+      }
+
+      .modal-image {
+        width: 100%;
+        max-height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-tech {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .modal-tech span {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.875rem;
+      }
+
+      /* Responsive Styles */
+      @media screen and (max-width: 992px) {
+        .hero-content {
+          flex-direction: column-reverse;
+          text-align: center;
+        }
+
+        .hero-description {
+          margin: 0 auto 2rem;
+        }
+
+        .hero-cta {
+          justify-content: center;
+        }
+
+        .social-links {
+          justify-content: center;
+        }
+
+        .projects-grid {
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        }
+      }
+
+      @media screen and (max-width: 768px) {
+        .nav-links {
+          position: absolute;
+          top: 70px;
+          right: 0;
+          width: 100%;
+          background-color: var(--card-bg);
+          flex-direction: column;
+          align-items: center;
+          padding: 2rem 0;
+          gap: 1.5rem;
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+          transform: translateY(-150%);
+          transition: var(--transition);
+          opacity: 0;
+          z-index: 999;
+        }
+
+        .nav-links.active {
+          transform: translateY(0);
+          opacity: 1;
+        }
+
+        .hamburger {
+          display: block;
+        }
+
+        .hamburger.active div:nth-child(1) {
+          transform: rotate(-45deg) translate(-5px, 6px);
+        }
+
+        .hamburger.active div:nth-child(2) {
+          opacity: 0;
+        }
+
+        .hamburger.active div:nth-child(3) {
+          transform: rotate(45deg) translate(-5px, -6px);
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.2rem;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .project-links {
+          flex-direction: column;
+        }
+
+        .project-links .btn {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 576px) {
+        .container {
+          padding: 0 1rem;
+        }
+
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .section {
+          padding: 3rem 0;
+        }
+
+        .resume-preview {
+          height: 400px;
+        }
+
+        .modal-content {
+          padding: 1.5rem;
+          margin: 0 1rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header & Navigation -->
+    <header id="header">
+      <div class="container">
+        <nav>
+          <a href="#" class="logo">Prateek</a>
+          <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li>
+              <div class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-sun"></i>
+              </div>
+            </li>
+          </ul>
+          <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1 class="hero-title">
+              Hi, I'm
+              <span style="color: var(--primary-color)">Prateek Rajput</span>
+            </h1>
+            <h2 class="hero-subtitle">Frontend Engineer</h2>
+            <p class="hero-description">
+              I build exceptional digital experiences with modern web
+              technologies. Specializing in React, Next.js, and full-stack
+              development.
+            </p>
+            <div class="hero-cta">
+              <a href="#experience" class="btn">View My Work</a>
+              <a href="#contact" class="btn btn-outline">Contact Me</a>
+            </div>
+            <div class="social-links">
+              <a
+                href="https://www.linkedin.com/in/prateek-rajput-0013a31b3/"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/Prateekrajput1999" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://leetcode.com/u/prateekrajput_2k19ee192/"
+                target="_blank"
+                ><i class="fas fa-code"></i
+              ></a>
+              <a href="mailto:pratikrajput08@gmail.com"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img
+              src="https://github.com/Prateekrajput1999/portfolio/blob/main/photo_2025-04-27_01-37-3.jpg?raw=true"
+              alt="Prateek Rajput"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+      <div class="container">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+          <div class="about-text">
+            <h3>Frontend Engineer & Problem Solver</h3>
+            <p>
+              I'm a passionate Frontend Engineer with expertise in building
+              modern web applications using React, Next.js, and other
+              cutting-edge technologies. I graduated from Delhi Technological
+              University with a B.Tech degree.
+            </p>
+            <p>
+              Currently working at Bloquelabs | Soclly, I've been instrumental
+              in developing and optimizing social media platforms, implementing
+              efficient data handling with GraphQL, and creating secure backend
+              services.
+            </p>
+            <p>
+              I'm dedicated to creating performant, user-friendly applications
+              and constantly expanding my knowledge in web development,
+              blockchain technology, and software architecture.
+            </p>
+            <a href="#contact" class="btn">Get In Touch</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+      <div class="container">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+          <div class="skills-category">
+            <h3>Languages</h3>
+            <div class="skills-list">
+              <div class="skill-item">JavaScript</div>
+              <div class="skill-item">TypeScript</div>
+              <div class="skill-item">C++</div>
+              <div class="skill-item">SQL</div>
+              <div class="skill-item">GraphQL</div>
+              <div class="skill-item">HTML</div>
+              <div class="skill-item">CSS</div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Frontend</h3>
+            <div class="skills-list">
+              <div class="skill-item">React.js</div>
+              <div class="skill-item">Next.js</div>
+              <div class="skill-item">React Native</div>
+              <div class="skill-item">Apollo GraphQL</div>
+              <div class="skill-item">Tailwind CSS</div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Backend</h3>
+            <div class="skills-list">
+              <div class="skill-item">Node.js</div>
+              <div class="skill-item">AWS (basic)</div>
+              <div class="skill-item">MongoDB</div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Tools & Others</h3>
+            <div class="skills-list">
+              <div class="skill-item">Git</div>
+              <div class="skill-item">Webpack</div>
+              <div class="skill-item">Jira</div>
+              <div class="skill-item">Data Structures</div>
+              <div class="skill-item">Algorithms</div>
+              <div class="skill-item">DBMS</div>
+              <div class="skill-item">Blockchain</div>
+              <div class="skill-item">LLD</div>
+              <div class="skill-item">Design Patterns</div>
+            </div>
+          </div>
+          <div class="skills-category">
+            <h3>Soft Skills</h3>
+            <div class="skills-list">
+              <div class="skill-item">Communication</div>
+              <div class="skill-item">Problem-Solving</div>
+              <div class="skill-item">Leadership</div>
+              <div class="skill-item">Time Management</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section">
+      <div class="container">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-container">
+          <div class="experience-card">
+            <div class="experience-header">
+              <div>
+                <h3 class="experience-title">Frontend Engineer</h3>
+                <div class="experience-company">
+                  Bloquelabs | Soclly, UP, India
+                </div>
+              </div>
+              <div class="experience-date">Feb 2023 - Present</div>
+            </div>
+            <div class="experience-description">
+              <ul>
+                <li>
+                  Spearheaded the development of a social media platform from 0
+                  to 1, implementing features such as user onboarding, content
+                  feed, responsive UI, and engagement actions, while also
+                  leading two major migrations in the protocol APIs.
+                </li>
+                <li>
+                  Configured ImageKit media CDN and lazy loading, reducing build
+                  size by more than 60% and bringing LCP, FCP, and load time to
+                  below 1 second.
+                </li>
+                <li>
+                  Integrated GraphQL Apollo Client to handle caching,
+                  pagination, and efficient data refetching.
+                </li>
+                <li>
+                  Designed and developed a secure backend service for creating,
+                  validating and storing user private key on Vercel Postgres DB,
+                  leveraging Next.js for Serverless APIs development.
+                </li>
+                <li>
+                  Consolidated two social media protocols (Lens and Farcaster)
+                  into a single app following standard design principles,
+                  driving an 80% increase in the user base, and also integrated
+                  a rewards program to enhance user engagement.
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="experience-cta">
+            <button class="btn" id="open-modal">Know more about my work</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">My Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <img
+              src="https://github.com/Prateekrajput1999/portfolio/blob/main/soclly1.png?raw=true"
+              alt="Soclly"
+              class="project-image"
+            />
+            <div class="project-content">
+              <h3 class="project-title">Soclly</h3>
+              <p class="project-description">
+                Spearheaded the development of a social media platform from 0 to
+                1, implementing features such as user onboarding, content feed,
+                responsive UI, and engagement actions. Consolidated two social
+                media protocols (Lens and Farcaster) into a single app.
+              </p>
+              <div class="project-links">
+                <button class="btn btn-sm" id="soclly-demo">View Demo</button>
+                <button class="btn btn-sm" id="soclly-learn">Learn More</button>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://github.com/Prateekrajput1999/portfolio/blob/main/confession.png?raw=true"
+              alt="Confession App"
+              class="project-image"
+            />
+            <div class="project-content">
+              <h3 class="project-title">Confession App</h3>
+              <p class="project-description">
+                A full-stack Confession app using React.js, TailwindCSS, and AWS
+                services, enabling users to anonymously share confessions with a
+                fully responsive interface.
+              </p>
+              <div class="project-links">
+                <button class="btn btn-sm" id="confession-demo">
+                  View Demo
+                </button>
+                <button class="btn btn-sm" id="confession-learn">
+                  Learn More
+                </button>
+                <button class="btn btn-sm btn-outline" id="confession-code">
+                  Source Code
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="project-card">
+            <img
+              src="https://github.com/Prateekrajput1999/portfolio/blob/main/netflixclone.png?raw=true"
+              alt="Netflix Clone"
+              class="project-image"
+            />
+            <div class="project-content">
+              <h3 class="project-title">Netflix Clone</h3>
+              <p class="project-description">
+                Developed a responsive frontend using React.js, deployed on AWS
+                Amplify. Backend built with Express.js, deployed on Vercel, and
+                connected to MongoDB as the database.
+              </p>
+              <div class="project-links">
+                <button class="btn btn-sm" id="netflix-demo">View Demo</button>
+                <button class="btn btn-sm" id="netflix-learn">
+                  Learn More
+                </button>
+                <button class="btn btn-sm btn-outline" id="netflix-code">
+                  Source Code
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="section">
+      <div class="container">
+        <h2 class="section-title">My Resume</h2>
+        <div class="resume-container">
+          <div class="resume-preview">
+            <iframe
+              src="https://drive.google.com/file/d/1o5cmXNDmfEYFQo_BCAA9vN9bNiiytXWv/preview"
+              allow="autoplay"
+            ></iframe>
+          </div>
+          <a
+            href="https://drive.google.com/file/d/1o5cmXNDmfEYFQo_BCAA9vN9bNiiytXWv/view"
+            target="_blank"
+            class="btn"
+            >Download Resume</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-container">
+          <div class="contact-info">
+            <h3>Let's Talk</h3>
+            <p>
+              Feel free to reach out to me for any opportunities,
+              collaborations, or just to say hello!
+            </p>
+            <div class="contact-details">
+              <div>
+                <i class="fas fa-phone"></i>
+                <span>+91 9899003830</span>
+              </div>
+              <div>
+                <i class="fas fa-envelope"></i>
+                <span>pratikrajput08@gmail.com</span>
+              </div>
+              <div>
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Delhi, India</span>
+              </div>
+            </div>
+            <div class="social-links-large">
+              <a
+                href="https://www.linkedin.com/in/prateek-rajput-0013a31b3/"
+                target="_blank"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+              <a href="https://github.com/Prateekrajput1999" target="_blank"
+                ><i class="fab fa-github"></i
+              ></a>
+              <a
+                href="https://leetcode.com/u/prateekrajput_2k19ee192/"
+                target="_blank"
+                ><i class="fas fa-code"></i
+              ></a>
+              <a href="mailto:pratikrajput08@gmail.com"
+                ><i class="fas fa-envelope"></i
+              ></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-logo">Prateek Rajput</div>
+          <div class="footer-links">
+            <a href="#hero">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
+            <a href="#resume">Resume</a>
+            <a href="#contact">Contact</a>
+          </div>
+          <div class="footer-social">
+            <a
+              href="https://www.linkedin.com/in/prateek-rajput-0013a31b3/"
+              target="_blank"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+            <a href="https://github.com/Prateekrajput1999" target="_blank"
+              ><i class="fab fa-github"></i
+            ></a>
+            <a
+              href="https://leetcode.com/u/prateekrajput_2k19ee192/"
+              target="_blank"
+              ><i class="fas fa-code"></i
+            ></a>
+            <a href="mailto:pratikrajput08@gmail.com"
+              ><i class="fas fa-envelope"></i
+            ></a>
+          </div>
+          <div class="footer-copyright">
+            &copy; 2023 Prateek Rajput. All Rights Reserved.
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <!-- Work Experience Modal -->
+    <div id="work-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close" id="close-modal"
+          ><i class="fas fa-times"></i
+        ></span>
+        <h2 class="modal-title">My Work Experience in Detail</h2>
+
+        <div class="modal-section">
+          <h3>Frontend Development</h3>
+          <ul>
+            <li>
+              Configured ImageKit media CDN and lazy loading, reducing build
+              size by more than 60% and bringing LCP, FCP, and load time to
+              below 1 second.
+            </li>
+            <li>
+              Integrated GraphQL Apollo Client to handle caching, pagination,
+              and efficient data refetching.
+            </li>
+            <li>
+              Implemented responsive UI designs that work seamlessly across
+              desktop, tablet, and mobile devices.
+            </li>
+            <li>
+              Utilized React.js and Next.js to build performant and scalable
+              frontend applications.
+            </li>
+            <li>
+              Implemented state management solutions using React Context API and
+              Apollo Client cache.
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Backend Development</h3>
+          <ul>
+            <li>
+              Designed and developed a secure backend service for creating,
+              validating and storing user private key on Vercel Postgres DB,
+              leveraging Next.js for Serverless APIs development.
+            </li>
+            <li>
+              Built RESTful APIs and GraphQL endpoints to support frontend
+              functionality.
+            </li>
+            <li>
+              Implemented authentication and authorization systems to secure
+              user data.
+            </li>
+            <li>
+              Optimized database queries and API responses for improved
+              performance.
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Leadership</h3>
+          <ul>
+            <li>
+              Spearheaded the development of a social media platform from 0 to
+              1, implementing features such as user onboarding, content feed,
+              responsive UI, and engagement actions.
+            </li>
+            <li>
+              Led two major migrations in the protocol APIs, ensuring minimal
+              disruption to user experience.
+            </li>
+            <li>
+              Consolidated two social media protocols (Lens and Farcaster) into
+              a single app following standard design principles, driving an 80%
+              increase in the user base.
+            </li>
+            <li>
+              Integrated a rewards program to enhance user engagement and
+              retention.
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>AI Integration</h3>
+          <ul>
+            <li>
+              Integrated OpenAI translation and summarization APIs to implement
+              'Translate' and 'Summarize' features for post content.
+            </li>
+            <li>
+              Implemented content moderation using AI to ensure platform safety.
+            </li>
+            <li>
+              Developed personalized content recommendation algorithms to
+              improve user engagement.
+            </li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Performance Optimization</h3>
+          <ul>
+            <li>
+              Implemented code splitting and lazy loading to improve initial
+              load times.
+            </li>
+            <li>
+              Optimized React component rendering to reduce unnecessary
+              re-renders.
+            </li>
+            <li>
+              Utilized memoization techniques to improve application
+              performance.
+            </li>
+            <li>
+              Implemented efficient caching strategies to reduce API calls and
+              improve user experience.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soclly Project Modal -->
+    <div id="soclly-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close soclly-close"
+          ><i class="fas fa-times"></i
+        ></span>
+        <h2 class="modal-title">Soclly - Social Media Platform</h2>
+
+        <div class="modal-tech">
+          <span>React.js</span>
+          <span>Next.js</span>
+          <span>GraphQL</span>
+          <span>Apollo Client</span>
+          <span>Tailwind CSS</span>
+          <span>Vercel</span>
+          <span>Postgres</span>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>
+            Soclly is a decentralized social media platform that integrates
+            multiple social protocols (Lens and Farcaster) into a single,
+            user-friendly interface. The platform allows users to create, share,
+            and engage with content across different blockchain-based social
+            networks.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>
+              Unified feed displaying content from multiple social protocols
+            </li>
+            <li>User onboarding with wallet integration</li>
+            <li>Content creation and engagement (likes, comments, shares)</li>
+            <li>AI-powered content translation and summarization</li>
+            <li>Responsive design for all device sizes</li>
+            <li>Efficient data handling with GraphQL and Apollo Client</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technical Achievements</h3>
+          <ul>
+            <li>
+              Configured ImageKit media CDN and lazy loading, reducing build
+              size by more than 60% and bringing LCP, FCP, and load time to
+              below 1 second.
+            </li>
+            <li>
+              Integrated GraphQL Apollo Client to handle caching, pagination,
+              and efficient data refetching.
+            </li>
+            <li>
+              Designed and developed a secure backend service for creating,
+              validating and storing user private key on Vercel Postgres DB,
+              leveraging Next.js for Serverless APIs development.
+            </li>
+            <li>
+              Consolidated two social media protocols (Lens and Farcaster) into
+              a single app following standard design principles, driving an 80%
+              increase in the user base.
+            </li>
+            <li>
+              Integrated OpenAI translation and summarization APIs to implement
+              'Translate' and 'Summarize' features for post content.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Confession App Modal -->
+    <div id="confession-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close confession-close"
+          ><i class="fas fa-times"></i
+        ></span>
+        <h2 class="modal-title">Confession App</h2>
+
+        <div class="modal-tech">
+          <span>React.js</span>
+          <span>Node.js</span>
+          <span>Express</span>
+          <span>MongoDB</span>
+          <span>AWS</span>
+          <span>Tailwind CSS</span>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>
+            The Confession App is a platform that allows users to anonymously
+            share their thoughts, secrets, and confessions. It provides a safe
+            space for people to express themselves without revealing their
+            identity, while still allowing community engagement through
+            reactions and comments.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>Anonymous confession posting</li>
+            <li>Community engagement through reactions and comments</li>
+            <li>Content moderation system</li>
+            <li>Category-based confession browsing</li>
+            <li>Responsive design for all device sizes</li>
+            <li>User authentication without revealing identity</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technical Achievements</h3>
+          <ul>
+            <li>
+              Implemented a secure authentication system that preserves user
+              anonymity
+            </li>
+            <li>Built a responsive frontend using React.js and Tailwind CSS</li>
+            <li>Developed a robust backend with Node.js and Express</li>
+            <li>
+              Created an efficient database schema in MongoDB for storing
+              confessions and interactions
+            </li>
+            <li>
+              Deployed the application on AWS for scalability and reliability
+            </li>
+            <li>
+              Implemented real-time updates for new confessions and interactions
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Netflix Clone Modal -->
+    <div id="netflix-modal" class="modal">
+      <div class="modal-content">
+        <span class="modal-close netflix-close"
+          ><i class="fas fa-times"></i
+        ></span>
+        <h2 class="modal-title">Netflix Clone</h2>
+
+        <div class="modal-tech">
+          <span>React.js</span>
+          <span>Express.js</span>
+          <span>MongoDB</span>
+          <span>AWS Amplify</span>
+          <span>Vercel</span>
+          <span>TMDB API</span>
+        </div>
+
+        <div class="modal-section">
+          <h3>Project Overview</h3>
+          <p>
+            This Netflix Clone project replicates the core functionality and
+            user interface of the popular streaming platform. It features a
+            responsive design, movie/TV show browsing, search functionality, and
+            user authentication.
+          </p>
+        </div>
+
+        <div class="modal-section">
+          <h3>Key Features</h3>
+          <ul>
+            <li>User authentication and profile management</li>
+            <li>Browse movies and TV shows by category</li>
+            <li>Search functionality</li>
+            <li>Video playback</li>
+            <li>Responsive design for all device sizes</li>
+            <li>Movie/show details and recommendations</li>
+          </ul>
+        </div>
+
+        <div class="modal-section">
+          <h3>Technical Achievements</h3>
+          <ul>
+            <li>
+              Developed a responsive frontend using React.js, deployed on AWS
+              Amplify
+            </li>
+            <li>Built a robust backend with Express.js, deployed on Vercel</li>
+            <li>
+              Integrated with The Movie Database (TMDB) API for movie and TV
+              show data
+            </li>
+            <li>Implemented user authentication and session management</li>
+            <li>
+              Created a MongoDB database for storing user data and preferences
+            </li>
+            <li>Optimized image loading and video playback for performance</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script>
+      // Set default theme to dark
+      document.documentElement.classList.add("dark");
+
+      // Theme Toggle
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      // Update icon based on current theme
+      function updateThemeIcon() {
+        if (document.documentElement.classList.contains("dark")) {
+          themeIcon.className = "fas fa-sun";
+        } else {
+          themeIcon.className = "fas fa-moon";
+        }
+      }
+
+      // Initialize icon
+      updateThemeIcon();
+
+      // Toggle theme when button is clicked
+      themeToggle.addEventListener("click", () => {
+        document.documentElement.classList.toggle("dark");
+        updateThemeIcon();
+
+        // Save theme preference to localStorage
+        const isDark = document.documentElement.classList.contains("dark");
+        localStorage.setItem("theme", isDark ? "dark" : "light");
+      });
+
+      // Toggle Mobile Navigation
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+
+      // Close mobile menu when clicking on a nav link
+      document.querySelectorAll(".nav-links a").forEach((link) => {
+        link.addEventListener("click", () => {
+          hamburger.classList.remove("active");
+          navLinks.classList.remove("active");
+        });
+      });
+
+      // Header scroll effect
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("scrolled");
+        } else {
+          header.classList.remove("scrolled");
+        }
+      });
+
+      // Back to top button
+      const backToTopButton = document.querySelector(".back-to-top");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 300) {
+          backToTopButton.classList.add("active");
+        } else {
+          backToTopButton.classList.remove("active");
+        }
+      });
+
+      backToTopButton.addEventListener("click", () => {
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Work Experience Modal
+      const workModal = document.getElementById("work-modal");
+      const openWorkModalBtn = document.getElementById("open-modal");
+      const closeWorkModalBtn = document.getElementById("close-modal");
+
+      openWorkModalBtn.addEventListener("click", () => {
+        workModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      });
+
+      closeWorkModalBtn.addEventListener("click", () => {
+        workModal.style.display = "none";
+        document.body.style.overflow = "auto";
+      });
+
+      // Project Modals
+      const socllyModal = document.getElementById("soclly-modal");
+      const confessionModal = document.getElementById("confession-modal");
+      const netflixModal = document.getElementById("netflix-modal");
+
+      // Soclly Modal Buttons
+      document.getElementById("soclly-demo").addEventListener("click", () => {
+        window.open("https://app.soclly.com/", "_blank");
+      });
+
+      document.getElementById("soclly-learn").addEventListener("click", () => {
+        socllyModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      });
+
+      document.getElementById("soclly-code").addEventListener("click", () => {
+        window.open("https://github.com/username/soclly", "_blank");
+      });
+
+      // Confession App Modal Buttons
+      document
+        .getElementById("confession-demo")
+        .addEventListener("click", () => {
+          window.open(
+            "https://master.d18sj892ok2m0q.amplifyapp.com/",
+            "_blank"
+          );
+        });
+
+      document
+        .getElementById("confession-learn")
+        .addEventListener("click", () => {
+          confessionModal.style.display = "block";
+          document.body.style.overflow = "hidden";
+        });
+
+      document
+        .getElementById("confession-code")
+        .addEventListener("click", () => {
+          window.open(
+            "https://github.com/Prateekrajput1999/Confession-App",
+            "_blank"
+          );
+        });
+
+      // Netflix Clone Modal Buttons
+      document.getElementById("netflix-demo").addEventListener("click", () => {
+        window.open("https://master.d3mswxqa7vdfhx.amplifyapp.com/", "_blank");
+      });
+
+      document.getElementById("netflix-learn").addEventListener("click", () => {
+        netflixModal.style.display = "block";
+        document.body.style.overflow = "hidden";
+      });
+
+      document.getElementById("netflix-code").addEventListener("click", () => {
+        window.open(
+          "https://github.com/Prateekrajput1999/Netflix-frontend",
+          "_blank"
+        );
+      });
+
+      // Close Project Modals
+      document.querySelectorAll(".soclly-close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          socllyModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+      });
+
+      document.querySelectorAll(".confession-close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          confessionModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+      });
+
+      document.querySelectorAll(".netflix-close").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          netflixModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        });
+      });
+
+      // Close modals when clicking outside
+      window.addEventListener("click", (e) => {
+        if (e.target === workModal) {
+          workModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+        if (e.target === socllyModal) {
+          socllyModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+        if (e.target === confessionModal) {
+          confessionModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+        if (e.target === netflixModal) {
+          netflixModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Close modals with Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+          workModal.style.display = "none";
+          socllyModal.style.display = "none";
+          confessionModal.style.display = "none";
+          netflixModal.style.display = "none";
+          document.body.style.overflow = "auto";
+        }
+      });
+
+      // Add smooth scrolling to all links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute("href");
+          const targetElement = document.querySelector(targetId);
+
+          if (targetElement) {
+            const headerHeight = document.querySelector("header").offsetHeight;
+            const targetPosition =
+              targetElement.getBoundingClientRect().top +
+              window.pageYOffset -
+              headerHeight;
+
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
